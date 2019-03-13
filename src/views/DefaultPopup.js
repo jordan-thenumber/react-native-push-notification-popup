@@ -41,6 +41,7 @@ const getAnimatedContainerStyle = ({containerSlideOffsetY, containerDragOffsetY,
 export default class DefaultPopup extends Component {
 
   static propTypes = {
+    duration: PropTypes.number    
     // TODO: customizable props
     // show: PropTypes.bool,
   };
@@ -209,7 +210,7 @@ export default class DefaultPopup extends Component {
   countdownToSlideOut = () => {
     const slideOutTimer = setTimeout(() => {
       this.slideOutAndDismiss();
-    }, 4000);  // TODO: customize
+    }, this.props.duration || 4000);  // TODO: customize
     this.setState({ slideOutTimer });
   }
 
